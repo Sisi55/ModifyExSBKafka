@@ -27,6 +27,7 @@ public class LibraryEventProducer {
     KafkaTemplate<Integer,String> kafkaTemplate;
 
     String topic = "library-events";
+
     @Autowired
     ObjectMapper objectMapper;
 
