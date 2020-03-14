@@ -20,6 +20,13 @@ public class LibraryEventsConsumer {
 
         log.info("ConsumerRecord : {} ", consumerRecord );
         libraryEventsService.processLibraryEvent(consumerRecord);
-
     }
+
+    @KafkaListener(topics = {"ubic-shop-test"})
+    public void onUserAction(ConsumerRecord<Integer,String> consumerRecord) throws JsonProcessingException {
+
+        log.info("ConsumerRecord : {} ", consumerRecord );
+//        libraryEventsService.processLibraryEvent(consumerRecord);
+    }
+
 }

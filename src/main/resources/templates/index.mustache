@@ -1,0 +1,37 @@
+{{>layout/header}}
+<div class="col-md-12">
+<div class="row"><!--class="col-md-6"-->
+    <button type="button" class="btn btn-primary col-md-2" id="btn-click">click</button>
+    <button type="button" class="btn btn-primary col-md-2" id="btn-shoplist">shoplist</button>
+    <!-- login -->
+    <div class="col-md-6">
+    {{#userName}} <!-- 로그인 했음 이름 출력 -->
+        Logged in as: <span id="user">{{userName}}</span>
+        <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+    {{/userName}}
+    {{^userName}} <!-- 안했음 로그인 버튼 -->
+        <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+    {{/userName}}
+    </div>
+</div>
+<!--
+userName
+clickCount
+shopCount
+-->
+<div class="row">
+    대시보드 <br>
+    <!-- 이름 -->
+    {{#userName}} <!-- 로그인 했음 이름 출력 -->
+        {{userName}}
+    {{/userName}}
+    {{^userName}} <!-- 안했음 로그인 버튼 -->
+        비회원
+    {{/userName}}
+    <br>
+    <!-- 집계 -->
+    click: {{#clickCount}}{{clickCount}}{{/clickCount}} {{^clickCount}}0{{/clickCount}}<br>
+    shoplist: {{#shopCount}}{{shopCount}}{{/shopCount}} {{^shopCount}}0{{/shopCount}}<br>
+</div>
+</div>
+{{>layout/footer}}
