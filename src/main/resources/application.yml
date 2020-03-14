@@ -1,6 +1,9 @@
 spring:
   profiles:
     active: local
+    include: oauth
+  session:
+    store-type: jdbc
 ---
 spring:
   profiles: local # local 만 수정
