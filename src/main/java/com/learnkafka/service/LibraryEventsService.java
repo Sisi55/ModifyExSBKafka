@@ -23,7 +23,7 @@ public class LibraryEventsService {
     @Autowired
     ObjectMapper objectMapper;
 
-    @Autowired
+    @Autowired(required = false)
     KafkaTemplate<Integer,String> kafkaTemplate;
 
     @Autowired
@@ -70,10 +70,10 @@ public class LibraryEventsService {
         log.info("Successfully Persisted the libary Event {} ", libraryEvent);
     }
 
-    public void handleRecovery(ConsumerRecord<Integer,String> record){
+    public void handleRecovery(ConsumerRecord<Object, Object> record){
 
-        Integer key = record.key();
-        String message = record.value();
+        Integer key = (Integer)record.key();
+        String message = (String)record.value();
 
         ListenableFuture<SendResult<Integer,String>> listenableFuture = kafkaTemplate.sendDefault(key, message);
         listenableFuture.addCallback(new ListenableFutureCallback<SendResult<Integer, String>>() {

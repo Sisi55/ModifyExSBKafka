@@ -23,7 +23,7 @@ import java.util.concurrent.TimeoutException;
 @Slf4j
 public class LibraryEventProducer {
 
-    @Autowired
+    @Autowired(required = false)
     KafkaTemplate<Integer,String> kafkaTemplate;
 
     String topic = "library-events";

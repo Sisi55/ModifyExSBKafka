@@ -6,6 +6,7 @@ build/
 !**/src/test/**
 
 application-oauth.properties
+application-kafka.yml
 
 ### STS ###
 .apt_generated

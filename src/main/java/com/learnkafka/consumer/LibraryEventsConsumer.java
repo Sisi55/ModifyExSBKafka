@@ -1,6 +1,8 @@
 package com.learnkafka.consumer;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.learnkafka.domain.KafkaProducerRequestDto;
 import com.learnkafka.service.LibraryEventsService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -15,18 +17,31 @@ public class LibraryEventsConsumer {
     @Autowired
     private LibraryEventsService libraryEventsService;
 
-    @KafkaListener(topics = {"library-events"})
-    public void onMessage(ConsumerRecord<Integer,String> consumerRecord) throws JsonProcessingException {
+    @Autowired
+    private ObjectMapper objectMapper;
 
-        log.info("ConsumerRecord : {} ", consumerRecord );
-        libraryEventsService.processLibraryEvent(consumerRecord);
-    }
+//    @KafkaListener(topics = {"library-events"})
+//    public void onMessage(ConsumerRecord<Integer,String> consumerRecord) throws JsonProcessingException {
+//
+//        log.info("ConsumerRecord : {} ", consumerRecord );
+//        libraryEventsService.processLibraryEvent(consumerRecord);
+//    }
 
     @KafkaListener(topics = {"ubic-shop-test"})
     public void onUserAction(ConsumerRecord<Integer,String> consumerRecord) throws JsonProcessingException {
 
-        log.info("ConsumerRecord : {} ", consumerRecord );
-//        libraryEventsService.processLibraryEvent(consumerRecord);
+        log.info("ConsumerRecord : {} ", consumerRecord.value() );
+        KafkaProducerRequestDto received = objectMapper.readValue(consumerRecord.value(),KafkaProducerRequestDto.class);
     }
+
+    @KafkaListener(topics = {"ubic-stream-test"})
+//    @StreamListener
+//    @Kafka
+    public void onUserActionListener(ConsumerRecord<?,?> consumerRecord) throws JsonProcessingException {
+
+        log.info("StreamsConsumerRecord : {} ", consumerRecord.value() );
+//        KafkaProducerRequestDto received = objectMapper.readValue(consumerRecord.value(),KafkaStreamsRequestDto.class);
+    }
+
 
 }

@@ -37,7 +37,6 @@ public class UbicUserActionProducer {
         ProducerRecord<String,String> producerRecord = buildProducerRecord(key, value, topic);
 
         ListenableFuture<SendResult<String,String>> listenableFuture =  kafkaTemplate.send(producerRecord);
-
         listenableFuture.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
             @Override
             public void onFailure(Throwable ex) {
@@ -49,7 +48,6 @@ public class UbicUserActionProducer {
                 handleSuccess(key, value, result);
             }
         });
-
         return listenableFuture;
     }
 
@@ -65,8 +63,6 @@ public class UbicUserActionProducer {
         } catch (Throwable throwable) {
             log.error("Error in OnFailure: {}", throwable.getMessage());
         }
-
-
     }
 
     private void handleSuccess(String key, String value, SendResult<String, String> result) {
