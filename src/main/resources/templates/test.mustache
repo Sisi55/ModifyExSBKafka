@@ -1,0 +1,136 @@
+{{>layout/header}}
+<div class="col-md-12">
+    <!--로그인-->
+    <div class="row" id="test-user-info">
+        {{#userName}} <!-- 로그인 했음 이름 출력 -->
+            Logged in as: <span id="user">{{userName}}</span>
+            <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+        {{/userName}}
+        {{^userName}} <!-- 안했음 로그인 버튼 --> <!--TODO 비회원 uuid 출력-->
+            <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+        {{/userName}}
+
+    </div>
+
+    <!--대시보드-->
+    <div class="row" id="test-dashboard">
+        <div class="col"></div>
+    </div>
+
+    <!--상품-->  <!-- <p id=""></p> -->
+    <div class="row" id="test-products">
+        <div class="card col-sm-6" id="test-products-0">
+            <div class="card-body">
+                <!--                This is some text within a card body.-->
+                <!--상품번호-->
+                <input type="hidden" value="29830" id="product-goodsno"/>
+                <!-- 상품이름-->
+                <p><strong> 상품이름</strong></p>
+                <p id="product-name">[하겐다즈] 파인트 피넛버터 크런치</p>
+                <!-- 상품간단설명-->
+                <p><strong> 상품간단설명</strong></p>
+                <p id="product-desc">피넛버터가 자아내는 깊은 풍미</p>
+                <!-- 이미지-->
+                <!--            <p><strong> </strong></p>-->
+                <p id="product-img">
+                    <img src="https://img-cf.kurly.com/shop/data/goods/1537509686933y0.jpg">
+                </p>
+                <!-- 할인가-->
+                <p><strong> 할인가</strong></p>
+                <p id="product-dcprice">9,675</p>
+                <!-- 할인율-->
+                <p><strong> 할인율</strong></p>
+                <p id="product-dcpercent">25%</p>
+
+                <!-- 정상가-->
+                <p><strong> 정상가</strong></p>
+                <p id="product-price">12,900</p>
+                <!-- 판매단위-->
+                <p><strong> 판매단위</strong></p>
+                <p id="product-salesunit">1통</p>
+                <!-- 용량-->
+                <p><strong> 용량</strong></p>
+                <p id="product-volume">473ml</p>
+                <!-- 알레르기 정보-->
+                <p><strong> 알레르기 정보</strong></p>
+                <p id="product-allergyinfo">
+                    - 우유, 계란, 땅콩 함유<br>
+                    - 견과류, 대두, 밀과 같은 시설에서 제조
+                </p>
+                <!-- 구매수량 :: 사용자가 선택해야 하는거 : p 가 아닐거라는-->
+                <p><strong> 구매수량</strong></p>
+                <p id="product-quantity">default 1</p>
+
+                <!-- -->
+                <!--            <p id=""></p>-->
+
+            </div>
+        </div>
+
+        <!-- 22 -->
+        <div class="card col-sm-6" id="test-products-1">
+            <div class="card-body">
+                <!--                This is some text within a card body.-->
+                <!--상품번호-->
+                <input type="hidden" value="45300" id="product-goodsno"/>
+                <!-- 상품이름-->
+                <p><strong> 상품이름</strong></p>
+                <p id="product-name">[은하수산] 노르웨이 생연어회 120g(냉장)</p>
+                <!-- 상품간단설명-->
+                <p><strong> 상품간단설명</strong></p>
+                <p id="product-desc">안전하게 담아낸 연어의 고소함</p>
+                <!-- 이미지-->
+                <!--            <p><strong> </strong></p>-->
+                <p id="product-img">
+                    <img src="https://img-cf.kurly.com/shop/data/goods/1576818398754y0.jpg">
+                </p>
+                <!-- 할인가-->
+                <p><strong> 할인가</strong></p>
+                <p id="product-dcprice">9,450</p>
+                <!-- 할인율-->
+                <p><strong> 할인율</strong></p>
+                <p id="product-dcpercent">10%</p>
+
+                <!-- 정상가-->
+                <p><strong> 정상가</strong></p>
+                <p id="product-price">10,500</p>
+                <!-- 판매단위-->
+                <p><strong> 판매단위</strong></p>
+                <p id="product-salesunit">1팩</p>
+                <!-- 용량-->
+                <p><strong> 용량</strong></p>
+                <p id="product-volume">120g</p>
+                <!-- 알레르기 정보-->
+                <p><strong> 알레르기 정보</strong></p>
+                <p id="product-allergyinfo">
+                    - 숙성한 연어회 : 대두, 밀, 고등어, 오징어, 게, 새우, 조개류, 돼지고기, 닭고기, 쇠고기를 사용한 제품과 같은 제조시설에서 제조
+                    <br>- 홀스래디쉬소스 : 대두, 계란, 쇠고기 함유
+                    <br>우유, 메밀, 땅콩, 밀, 고등어, 게, 새우, 돼지고기, 복숭아, 토마토, 아황산류, 호두, 닭고기, 오징어, 조개류(굴, 전복, 홍합 포함), 잣 등을 사용한 제품과
+                    같은 제조시설에서 제조
+                    <br>- 생와사비 : 난류, 우유, 메밀, 땅콩, 대두, 밀, 고등어, 게, 새우, 돼지고기, 복숭아, 토마토, 아황산류, 호두, 닭고기, 쇠고기, 오징어, 조개류(굴, 전복,
+                    홍합 포함), 잣 등을 사용한 제품과 같은 제조시설에서 제조
+                    <br>- 사시미 간장소스 : 대두, 밀 함유
+                    <br>난류, 우유, 메밀, 땅콩, 고등어, 게, 새우, 돼지고기, 복숭아, 토마토, 아황산류, 호두, 닭고기, 쇠고기, 오징어, 조개류(굴, 전복, 홍합 포함), 잣 등을 사용한
+                    제품과 같은 제조시설에서 제조
+                    <!--                    - 우유, 계란, 땅콩 함유<br>-->
+                    <!--                    - 견과류, 대두, 밀과 같은 시설에서 제조-->
+                </p>
+                <!-- 구매수량 :: 사용자가 선택해야 하는거 : p 가 아닐거라는-->
+                <p><strong> 구매수량</strong></p>
+                <p id="product-quantity">default 1</p>
+
+                <!-- -->
+                <!--            <p id=""></p>-->
+
+            </div>
+        </div>
+
+        <!--        <div  id="test-products-0">&lt;!&ndash;class="row"&ndash;&gt;-->
+        <!--        </div>-->
+        <!--        <div class="row" id="test-products-1"></div>-->
+
+    </div>
+
+
+</div>
+{{>layout/footer}}

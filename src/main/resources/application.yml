@@ -1,6 +1,9 @@
+server.port: 8081
+
 spring:
   profiles:
 #    active: local
     include: oauth,kafka # 설정 파일 보안
   session:
     store-type: jdbc
+

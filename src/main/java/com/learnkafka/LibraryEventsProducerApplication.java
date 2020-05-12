@@ -2,12 +2,21 @@ package com.learnkafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 //import org.springframework.boot.autoconfigure.kafka.KafkaStreamsAnnotationDrivenConfiguration;
 
 //@EnableKafka // 어떤 기능을 하는걸까 ? 없어도 작동했거든
+@EnableJpaRepositories(basePackages = "com.learnkafka.domain")
+@EnableElasticsearchRepositories(basePackages = "com.learnkafka.elasticdomain")
 @SpringBootApplication
 public class LibraryEventsProducerApplication {
+
+//    @Qualifier("") // ?
+//    @Autowired
+//    RestHighLevelClient highLevelClient;
+
 
 //    @Autowired
 //    Properties loadConfig;
